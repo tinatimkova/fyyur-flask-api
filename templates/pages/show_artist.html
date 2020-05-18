@@ -1,11 +1,29 @@
 {% extends 'layouts/main.html' %}
 {% block title %}{{ artist.name }} | Artist{% endblock %}
 {% block content %}
+<style>
+	h1 {
+		display: inline-block;
+		margin-right: 50px;
+	}
+	#delete, #update{
+		border: none;
+		outline: none;
+		float: center;
+		font-size: 18px;
+		background: none;
+	}
+	#update{
+		font-size: 15px;
+	}
+</style>
 <div class="row">
 	<div class="col-sm-6">
 		<h1 class="monospace">
 			{{ artist.name }}
 		</h1>
+		<button id='update' data-id='{{ artist.id }}'>&#x270e;</button>
+		<button id='delete' data-id='{{ artist.id }}'>&cross;</button>
 		<p class="subtitle">
 			ID: {{ artist.id }}
 		</p>
@@ -33,7 +51,7 @@
 				<i class="fas fa-quote-left"></i> {{ artist.seeking_description }} <i class="fas fa-quote-right"></i>
 			</div>
 		</div>
-		{% else %}	
+		{% else %}
 		<p class="not-seeking">
 			<i class="fas fa-moon"></i> Not currently seeking performance venues
 		</p>
@@ -71,6 +89,26 @@
 		{% endfor %}
 	</div>
 </section>
-
+<script>
+	const artist = document.getElementById('delete');
+	artist.onclick = function(e) {
+		const artistId = e.target.dataset['id'];
+		fetch('/artists/' + artistId, {
+			method: 'DELETE'
+		})
+		.then(function() {
+			window.location.replace('/')
+		})
+	}
+	const edit = document.getElementById('update');
+	edit.onclick = function(e) {
+		const artistId = e.target.dataset['id'];
+		fetch('/artists/' + artistId + '/edit', {
+			method: 'GET'
+		})
+		.then(function() {
+				window.location.replace('/artists/' + artistId + '/edit')
+		})
+	}
+</script>
 {% endblock %}
-
