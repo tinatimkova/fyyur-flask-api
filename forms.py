@@ -121,6 +121,7 @@ class VenueForm(Form):
     )
     seeking_talent = SelectField('seeking_talent', choices=[('true', 'Yes'), ('', 'No')])
 
+
 class ArtistForm(Form):
     name = StringField(
         'name', validators=[DataRequired()]
