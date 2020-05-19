@@ -33,6 +33,7 @@ packaging==20.3
 parso==0.3.1
 passlib==1.7.2
 pickleshare==0.7.5
+pipenv==2018.11.26
 prompt-toolkit==2.0.7
 psycopg2==2.8.5
 psycopg2-binary==2.8.4
@@ -57,6 +58,7 @@ traitlets==4.3.2
 urllib3==1.25.8
 user-agent==0.1.9
 virtualenv==20.0.17
+virtualenv-clone==0.5.4
 wcwidth==0.1.7
 webencodings==0.5.1
 weblib==0.1.30
