@@ -4,4 +4,6 @@ flask-heroku==0.1.9
 itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1
+python-dateutil==2.8.1
+six==1.14.0
 Werkzeug==1.0.1
