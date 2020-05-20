@@ -16,6 +16,7 @@ from forms import *
 from flask_migrate import Migrate
 from sqlalchemy import func
 import sys
+from flask.ext.heroku import Heroku
 
 #----------------------------------------------------------------------------#
 # App Config.
@@ -23,7 +24,8 @@ import sys
 
 app = Flask(__name__)
 moment = Moment(app)
-app.config.from_object('config')
+# app.config.from_object('config')
+heroku = Heroku(app)
 db = SQLAlchemy(app)
 
 # connect to a local postgresql database
